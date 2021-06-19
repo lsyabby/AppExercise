@@ -13,6 +13,7 @@ class ListViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
     }
     
     private func setupTableView() {
