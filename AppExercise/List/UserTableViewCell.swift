@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UserTableViewCell: UITableViewCell {
 
@@ -13,9 +14,18 @@ class UserTableViewCell: UITableViewCell {
     private let loginLabel = UILabel()
     private let adminBtn = UIButton()
     
+    // fix: abby
+    var user: User? {
+        didSet {
+            avatarImgView.sd_setImage(with: URL(string: user?.avatarUrl ?? ""), completed: nil)
+            loginLabel.text = user?.login ?? ""
+            adminBtn.isHidden = !(user?.isAdmin ?? false)
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        setupView()
     }
     
     required init?(coder: NSCoder) {

@@ -6,6 +6,7 @@ target 'AppExercise' do
   use_frameworks!
 
   # Pods for AppExercise
+  pod 'SDWebImage', '~> 5.0'
 
   target 'AppExerciseTests' do
     inherit! :search_paths
