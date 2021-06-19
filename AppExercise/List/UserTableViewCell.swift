@@ -14,7 +14,6 @@ class UserTableViewCell: UITableViewCell {
     private let loginLabel = UILabel()
     private let adminBtn = UIButton()
     
-    // fix: abby
     var user: User? {
         didSet {
             avatarImgView.sd_setImage(with: URL(string: user?.avatarUrl ?? ""), completed: nil)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		A0FE3DDE267E60760065CEFE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE3DDD267E60760065CEFE /* ListViewModel.swift */; };
 		A0FE3DE6267E60CF0065CEFE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE3DE5267E60CF0065CEFE /* APIService.swift */; };
 		A0FE3DEE267E63790065CEFE /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE3DED267E63790065CEFE /* UserTableViewCell.swift */; };
+		A0FE3DFD267E67B50065CEFE /* ListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE3DFC267E67B50065CEFE /* ListTableViewDataSource.swift */; };
 		E544C4890C42780796E5F06A /* Pods_AppExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F102EB21DF9148957B92916B /* Pods_AppExerciseTests.framework */; };
 		E9824E8B409CC79E0B36AA3E /* Pods_AppExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F288B6B1CAEBDB4339E625C /* Pods_AppExercise.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		A0FE3DDD267E60760065CEFE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		A0FE3DE5267E60CF0065CEFE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A0FE3DED267E63790065CEFE /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		A0FE3DFC267E67B50065CEFE /* ListTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewDataSource.swift; sourceTree = "<group>"; };
 		A1AFF3BBB68974D67F6EA709 /* Pods-AppExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppExercise.release.xcconfig"; path = "Target Support Files/Pods-AppExercise/Pods-AppExercise.release.xcconfig"; sourceTree = "<group>"; };
 		C7955DDDA32FE037D09DB3D6 /* Pods-AppExercise-AppExerciseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppExercise-AppExerciseUITests.release.xcconfig"; path = "Target Support Files/Pods-AppExercise-AppExerciseUITests/Pods-AppExercise-AppExerciseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED38BAC0BE2B8E02340DCEB7 /* Pods-AppExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppExercise.debug.xcconfig"; path = "Target Support Files/Pods-AppExercise/Pods-AppExercise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +111,6 @@
 				9936F2DBD1F3F080B054A407 /* Pods-AppExerciseTests.debug.xcconfig */,
 				97FBC5350E95E88041D94639 /* Pods-AppExerciseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -174,6 +175,7 @@
 			children = (
 				A031D013267E581A00308751 /* ListViewController.swift */,
 				A0FE3DDD267E60760065CEFE /* ListViewModel.swift */,
+				A0FE3DFC267E67B50065CEFE /* ListTableViewDataSource.swift */,
 				A0FE3DED267E63790065CEFE /* UserTableViewCell.swift */,
 			);
 			path = List;
@@ -445,6 +447,7 @@
 			files = (
 				A0FE3DDE267E60760065CEFE /* ListViewModel.swift in Sources */,
 				A031D014267E581A00308751 /* ListViewController.swift in Sources */,
+				A0FE3DFD267E67B50065CEFE /* ListTableViewDataSource.swift in Sources */,
 				A0FE3DEE267E63790065CEFE /* UserTableViewCell.swift in Sources */,
 				A0FE3DE6267E60CF0065CEFE /* APIService.swift in Sources */,
 				A031D010267E581A00308751 /* AppDelegate.swift in Sources */,
