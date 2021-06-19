@@ -59,6 +59,11 @@ class UserTableViewCell: UITableViewCell {
         sv.alignment = .leading
         sv.spacing = 5
         
+        [ avatarImgView, sv ].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview($0)
+        }
+        
         [
             avatarImgView.heightAnchor.constraint(equalToConstant: avatarHeight),
             avatarImgView.widthAnchor.constraint(equalTo: avatarImgView.heightAnchor),
