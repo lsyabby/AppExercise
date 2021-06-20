@@ -60,6 +60,16 @@ class ListViewController: UIViewController, UITableViewDelegate {
             self?.tableView.reloadData()
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.height - 50 {
+            if viewModel.pageSince < 100 {
+                viewModel.pageSince += 20
+            }
+        }
+    }
 
     deinit {
         print("ListViewController deinit")
