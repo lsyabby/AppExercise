@@ -45,9 +45,11 @@
 <br/>
 
 
-## Design Pattern: MVVM
+## Design Pattern
+* MVVM
 
-## Language: Swift
+## Language
+* Swift
 
 ## Requirement
 * iOS 14.4+
