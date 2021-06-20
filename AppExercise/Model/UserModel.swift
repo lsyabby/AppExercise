@@ -18,3 +18,24 @@ struct User: Codable {
         case isAdmin = "site_admin"
     }
 }
+
+
+struct Detail: Codable {
+    let avatarUrl: String
+    let name: String
+    let bio: String?
+    let login: String
+    let isAdmin: Bool
+    let location: String?
+    let blog: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case avatarUrl = "avatar_url"
+        case name
+        case bio
+        case login
+        case isAdmin = "site_admin"
+        case location
+        case blog
+    }
+}

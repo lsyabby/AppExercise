@@ -45,7 +45,7 @@ class ListViewController: UIViewController, UITableViewDelegate {
     }
     
     private func bind() {
-        viewModel.binding = { [weak self] in
+        viewModel.bindToListVC = { [weak self] in
             self?.updateDataSource()
         }
     }

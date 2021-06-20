@@ -30,4 +30,20 @@ class APIService {
             }
         }.resume()
     }
+    
+    func getDetailData(userName: String, completion: @escaping (Detail) -> ()) {
+        let urlString = URL(string: "https://api.github.com/users/\(userName)")
+        if let url = urlString {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                if let data = data, let user = try? decoder.decode(Detail.self, from: data) {
+                    completion(user)
+                    print("success get detail data")
+                } else {
+                    print("error: \(error.debugDescription)")
+                }
+            }.resume()
+        }
+    }
 }
