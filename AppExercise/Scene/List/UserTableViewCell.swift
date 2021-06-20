@@ -22,6 +22,8 @@ class UserTableViewCell: UITableViewCell {
         }
     }
     
+    var tapCell: (String) -> Void = { _ in }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -93,6 +95,9 @@ class UserTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        if selected {
+            tapCell(user?.login ?? "")
+        }
     }
 
 }

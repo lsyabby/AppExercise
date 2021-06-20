@@ -145,8 +145,7 @@
 			children = (
 				A031D04A267E5D1E00308751 /* Service */,
 				A031D049267E5D1200308751 /* Model */,
-				A031D045267E5CD100308751 /* List */,
-				A03E997C267F13E700819CB8 /* Detail */,
+				A03E998F267F1A6000819CB8 /* Scene */,
 				A031D00F267E581A00308751 /* AppDelegate.swift */,
 				A031D011267E581A00308751 /* SceneDelegate.swift */,
 				A031D015267E581A00308751 /* Main.storyboard */,
@@ -179,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				A031D013267E581A00308751 /* ListViewController.swift */,
-				A0FE3DDD267E60760065CEFE /* ListViewModel.swift */,
 				A0FE3DFC267E67B50065CEFE /* ListTableViewDataSource.swift */,
 				A0FE3DED267E63790065CEFE /* UserTableViewCell.swift */,
 			);
@@ -209,6 +207,16 @@
 				A03E9987267F152A00819CB8 /* DetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		A03E998F267F1A6000819CB8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE3DDD267E60760065CEFE /* ListViewModel.swift */,
+				A031D045267E5CD100308751 /* List */,
+				A03E997C267F13E700819CB8 /* Detail */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		F46BEA10E01BA73CBE17C03D /* Frameworks */ = {

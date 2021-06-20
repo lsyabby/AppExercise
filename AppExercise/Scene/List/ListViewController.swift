@@ -53,6 +53,11 @@ class ListViewController: UIViewController, UITableViewDelegate {
     private func updateDataSource() {
         dataSource = ListTableViewDataSource(cellIdentifier: UserTableViewCell.description(), items: viewModel.list, configureCell: { (cell, element) in
             cell.user = element
+            cell.tapCell = { [weak self] login in
+                self?.viewModel.userName = login
+                let detailVC = DetailViewController()
+                self?.present(detailVC, animated: true, completion: nil)
+            }
         })
         
         DispatchQueue.main.async { [weak self] in
