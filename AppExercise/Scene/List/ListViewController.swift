@@ -45,7 +45,7 @@ class ListViewController: UIViewController, UITableViewDelegate {
     }
     
     private func bind() {
-        viewModel.bindToListVC = { [weak self] in
+        viewModel.binding = { [weak self] in
             self?.updateDataSource()
         }
     }
@@ -54,8 +54,8 @@ class ListViewController: UIViewController, UITableViewDelegate {
         dataSource = ListTableViewDataSource(cellIdentifier: UserTableViewCell.description(), items: viewModel.list, configureCell: { (cell, element) in
             cell.user = element
             cell.tapCell = { [weak self] login in
-                self?.viewModel.userName = login
                 let detailVC = DetailViewController()
+                detailVC.viewModel.userName = login
                 self?.present(detailVC, animated: true, completion: nil)
             }
         })
@@ -67,10 +67,10 @@ class ListViewController: UIViewController, UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        if offsetY > contentHeight - scrollView.frame.height - 50 {
-            if viewModel.pageSince < 100 {
+        let isReachingEnd = scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)
+        
+        if tableView.dataSource != nil {
+            if isReachingEnd, viewModel.pageSince + 20 < 100 {
                 viewModel.pageSince += 20
             }
         }

@@ -26,6 +26,7 @@ class APIService {
                 completion(list)
                 print("data count: \(list.count)")
             } else {
+                completion([])
                 print("error: \(error.debugDescription)")
             }
         }.resume()

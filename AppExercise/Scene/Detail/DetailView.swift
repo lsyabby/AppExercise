@@ -13,13 +13,11 @@ class DetailView: UIView {
     private let avatarImgView = UIImageView()
     private let nameLabel = UILabel()
     private let bioLabel = UILabel()
-
     private let loginLabel = UILabel()
     private let adminBtn = UIButton()
-
     private let locationLabel = UILabel()
-
-    private let blogLabel = UILabel()
+    let blogLabel = UILabel()
+    let dismissBtn = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +35,9 @@ class DetailView: UIView {
         let avatarHeight: CGFloat = UIScreen.main.bounds.width / 2
         avatarImgView.clipsToBounds = true
         avatarImgView.layer.cornerRadius = avatarHeight / 2
+        
+        bioLabel.numberOfLines = 0
+        bioLabel.textAlignment = .center
         
         let line = UIView()
         line.backgroundColor = UIColor.lightGray.withAlphaComponent(0.6)
@@ -76,6 +77,7 @@ class DetailView: UIView {
         blogSV.axis = .horizontal
         blogSV.alignment = .center
         blogSV.spacing = 24
+        blogLabel.isUserInteractionEnabled = true
         
         let imgHeight: CGFloat = 40
         [ img1, img2, img3 ].forEach {
@@ -89,7 +91,11 @@ class DetailView: UIView {
         allSV.alignment = .leading
         allSV.spacing = 40
         
-        [ avatarImgView, nameLabel, bioLabel, line, allSV ].forEach {
+        dismissBtn.setTitle("X", for: .normal)
+        dismissBtn.setTitleColor(.black, for: .normal)
+        dismissBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        
+        [ avatarImgView, nameLabel, bioLabel, line, allSV, dismissBtn ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -104,7 +110,8 @@ class DetailView: UIView {
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             bioLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
-            bioLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bioLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            bioLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             line.heightAnchor.constraint(equalToConstant: 2),
             line.topAnchor.constraint(equalTo: bioLabel.bottomAnchor, constant: 24),
@@ -123,7 +130,12 @@ class DetailView: UIView {
             img3.widthAnchor.constraint(equalToConstant: imgHeight),
             
             adminBtn.heightAnchor.constraint(equalToConstant: adminBtnHeight),
-            adminBtn.widthAnchor.constraint(equalToConstant: 65)
+            adminBtn.widthAnchor.constraint(equalToConstant: 65),
+            
+            dismissBtn.widthAnchor.constraint(equalToConstant: imgHeight),
+            dismissBtn.heightAnchor.constraint(equalToConstant: imgHeight),
+            dismissBtn.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            dismissBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
             
         ].forEach {
             $0.isActive = true

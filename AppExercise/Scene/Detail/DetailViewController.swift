@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    private let viewModel = ListViewModel()
+    let viewModel = DetailViewModel()
     private var detailView = DetailView()
     
     override func viewDidLoad() {
@@ -23,6 +23,10 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(detailView)
         
+        detailView.dismissBtn.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        detailView.blogLabel.addGestureRecognizer(tap)
+
         [
             detailView.topAnchor.constraint(equalTo: view.topAnchor),
             detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -35,13 +39,23 @@ class DetailViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.bindToDetailVC = { [weak self] in
+        viewModel.binding = { [weak self] in
             if let detail = self?.viewModel.detail {
                 DispatchQueue.main.async {
                     self?.detailView.setupView(detail: detail)
                     self?.detailView.layoutIfNeeded()
                 }
             }
+        }
+    }
+    
+    @objc func dismissAction() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func tapAction() {
+        if let url = URL(string: detailView.blogLabel.text ?? "") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
